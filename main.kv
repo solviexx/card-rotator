@@ -1,0 +1,35 @@
+<CardRotatorGUI>:
+    orientation: 'vertical'
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+        TextInput:
+            id: input_box
+            hint_text: 'Enter card like 4111|12|2025|123'
+            multiline: False
+            text: root.input_box.text
+    Button:
+        text: 'Load cards.txt'
+        size_hint_y: None
+        height: '40dp'
+        on_press: root.load_file(self)
+    Button:
+        id: start_btn
+        text: 'Start'
+        size_hint_y: None
+        height: '40dp'
+        on_press: root.toggle(self)
+    Button:
+        text: 'Settings (Telegram)'
+        size_hint_y: None
+        height: '40dp'
+        on_press: root.open_settings(self)
+    ScrollView:
+        Label:
+            id: logs
+            text: root.logs.text
+            text_size: self.width, None
+            size_hint_y: None
+            height: self.texture_size[1]
+            halign: 'left'
+            valign: 'top'
